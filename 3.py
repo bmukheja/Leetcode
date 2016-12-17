@@ -5,13 +5,13 @@ class Solution(object):
         for i in s:
             if i in lst:
                 max_len = max(max_len,len(lst))
-                del lst[:]
+                del lst[:lst.index(i)+1]
             lst.append(i)
         max_forward =  max(max_len,len(lst))
         for i in s[::-1]:
             if i in lst:
                 max_len = max(max_len,len(lst))
-                del lst[:]
+                del lst[:lst.index(i)+1]
             lst.append(i)
         max_backward =  max(max_len,len(lst))
         return max(max_backward,max_forward)
